@@ -2,7 +2,7 @@
 ## Ideia de CRUD, para um sistema de vendas online
 
 :wrench: **Ferramentas:**
-  - Node;
+  - [Node](https://nodejs.org/en/download);
   - Express;
   - TypeScript;
   - Firebase:
