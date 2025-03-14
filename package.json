@@ -1,0 +1,24 @@
+{
+  "name": "apis-restful-usando-node.js-express",
+  "version": "1.0.0",
+  "description": ":wrench: **Ferramentas:**\r   - [Node](https://nodejs.org/en/download);\r   - Express;\r   - TypeScript;\r   - Firebase:\r       - Authentication;\r       - Firetore;\r       - Storage;\r       - Functions: Hospedagem;\r       - Emulator;\r   - EsLint;\r   - tsc-watch.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheJessicaBohn/APIs-RESTful-usando-Node.js-Express.git"
+  },
+  "keywords": [],
+  "author": "Jéssica Bohn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheJessicaBohn/APIs-RESTful-usando-Node.js-Express/issues"
+  },
+  "homepage": "https://github.com/TheJessicaBohn/APIs-RESTful-usando-Node.js-Express#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
