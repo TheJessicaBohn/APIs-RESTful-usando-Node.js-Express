@@ -13,7 +13,7 @@
       - Functions: Hospedagem;
       - Emulator;
   - EsLint;
-  - tsc-watch.
+  - [tsc-watch](https://www.npmjs.com/package/tsc-watch): compiça o código para JavaScript e executa o Node, sem que tenha que refazer os comandos.
 
 **Comandos uteis:**
 
@@ -31,8 +31,10 @@
 - ```npm i @types/node @types/express -D```: instalação dos códigos do express no TypeScript; 
 - ```npx tsc --init```: instalar as dependências do TypeScript apenas dentro do projeto, pelo executor;
 - ```npm install --save-dev @tsconfig/recommended```: instalar configurações recomendadas;
+- ```npm install tsc-watch --save-dev```: instalar tsc-watch;
 - ```npx tsc```: após as configurações gerar as libs;
 - ```node lib/index.js```: executar o arquivo gerado;
+- ```npx tsc-watch --onSuccess "node ./lib/index.js"```: compila em tempo real;
 
 **Fontes:**
   - https://github.com/tsconfig/bases/?tab=readme-ov-file
