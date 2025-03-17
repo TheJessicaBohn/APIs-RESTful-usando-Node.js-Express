@@ -6,6 +6,7 @@
   - [Visual Studio Code](https://code.visualstudio.com/download);
   - Express;
   - [TypeScript](https://nodejs.org/en/learn/typescript/introduction): tipagem do JavaScript;
+  - [PostMan](https://www.postman.com/downloads/);
   - Firebase:
       - Authentication;
       - Firetore;
@@ -35,6 +36,7 @@
 - ```npx tsc```: após as configurações gerar as libs;
 - ```node lib/index.js```: executar o arquivo gerado;
 - ```npx tsc-watch --onSuccess "node ./lib/index.js"```: compila em tempo real;
+- ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```, 
 
 **Fontes:**
   - https://github.com/tsconfig/bases/?tab=readme-ov-file

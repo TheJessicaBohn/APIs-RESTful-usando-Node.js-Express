@@ -1,9 +1,23 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
 const app = express();
 
-app.get("/", (req, res) =>{
+app.get("/", (req: Request, res: Response) =>{
   res.send("Bem Vindo a lojinha! - ;-]");
+});
+
+app.get("/users", (req: Request, res: Response) => {
+  let usuarios = [
+    {
+      nome: "Jéssica Bohn",
+      idade: 28
+    },
+    {
+      nome: "Erich Bönisch",
+      idade: 32
+    }
+  ];
+  res.send(usuarios);
 });
 
 app.listen(3000, () => {
