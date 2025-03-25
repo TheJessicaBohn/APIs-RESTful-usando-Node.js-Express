@@ -20,6 +20,8 @@
 
 - ```cd nome-da-pasta```: entrar na pasta;
 - ```ctrl + c```: parar a execução;
+- ```ctrl + shift + p```: abrir a busca do vscode;
+- ```Remove Unused Imports```: dentro da busca do vscode, para remover os imports inutilizados;
 - ```ls```: listar o interior da pasta;
 - ```mkdir nome-da-pasta```: criar pasta;
 - ```node -v```: versão do node;
@@ -36,7 +38,7 @@
 - ```npx tsc```: após as configurações gerar as libs;
 - ```node lib/index.js```: executar o arquivo gerado;
 - ```npx tsc-watch --onSuccess "node ./lib/index.js"```: compila em tempo real;
-- ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```, 
+- ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```,
 
 **Fontes:**
   - https://github.com/tsconfig/bases/?tab=readme-ov-file
