@@ -2,16 +2,16 @@
 ## Ideia de CRUD, para um sistema de vendas online
 
 :wrench: **Ferramentas:**
-  - [Node](https://nodejs.org/en/download);
+  - [Node:](https://nodejs.org/en/download) permite executar o java script fora do navegador;
   - [Visual Studio Code](https://code.visualstudio.com/download);
   - Express;
   - [TypeScript](https://nodejs.org/en/learn/typescript/introduction): tipagem do JavaScript;
   - [PostMan](https://www.postman.com/downloads/);
-  - Firebase:
-      - Authentication;
-      - Firetore;
-      - Storage;
-      - Functions: Hospedagem;
+  - [Firebase:](https://firebase.google.com/?hl=pt-br) ofereçe uma camada sobre o google cloud, para facilitar o lançamento e desenvolvimento de aplicações web ou mobile;
+      - Authentication: Parte de logins;
+      - Firetore: um banco de dados não relacional em núvem, parecido com o MongoDB;
+      - Storage: Permite que façamos Uploads de arquivos, como fotos, vídeos, músicas, PDFs;
+      - Functions: Hospedagem da API;
       - Emulator;
   - EsLint;
   - [tsc-watch](https://www.npmjs.com/package/tsc-watch): compiça o código para JavaScript e executa o Node, sem que tenha que refazer os comandos.
