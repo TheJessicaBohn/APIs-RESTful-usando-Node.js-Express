@@ -4,7 +4,7 @@
   "description": ":wrench: **Ferramentas:**\r   - [Node](https://nodejs.org/en/download);\r   - Express;\r   - TypeScript;\r   - Firebase:\r       - Authentication;\r       - Firetore;\r       - Storage;\r       - Functions: Hospedagem;\r       - Emulator;\r   - EsLint;\r   - tsc-watch.",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc-watch --onSuccess \"node ./lib/index.js\"",
+    "start": "npx tsc-watch --onSuccess \"node --env-file=.env ./lib/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/TheJessicaBohn/APIs-RESTful-usando-Node.js-Express#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "firebase-admin": "^13.2.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",

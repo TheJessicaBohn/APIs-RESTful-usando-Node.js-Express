@@ -13,6 +13,7 @@
       - Storage: Permite que façamos Uploads de arquivos, como fotos, vídeos, músicas, PDFs;
       - Functions: Hospedagem da API;
       - Emulator;
+	  - [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup?authuser=2&hl=pt-br);
   - EsLint;
   - [tsc-watch](https://www.npmjs.com/package/tsc-watch): compiça o código para JavaScript e executa o Node, sem que tenha que refazer os comandos.
 
@@ -38,7 +39,8 @@
 - ```npx tsc```: após as configurações gerar as libs;
 - ```node lib/index.js```: executar o arquivo gerado;
 - ```npx tsc-watch --onSuccess "node ./lib/index.js"```: compila em tempo real;
-- ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```,
+- ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```;
+- ```npm install firebase-admin --save```: instalar o Firebase Admin SDK;
 
 **Fontes:**
   - https://github.com/tsconfig/bases/?tab=readme-ov-file
