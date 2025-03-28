@@ -9,7 +9,7 @@
   - [PostMan](https://www.postman.com/downloads/);
   - [Firebase:](https://firebase.google.com/?hl=pt-br) ofereçe uma camada sobre o google cloud, para facilitar o lançamento e desenvolvimento de aplicações web ou mobile;
       - Authentication: Parte de logins;
-      - Firetore: um banco de dados não relacional em núvem, parecido com o MongoDB;
+      - [Firetore](https://firebase.google.com/docs/firestore/manage-data/add-data?hl=pt-br&authuser=2#node.js): um banco de dados não relacional em núvem, parecido com o MongoDB, NoSQL com estrutura Google;
       - Storage: Permite que façamos Uploads de arquivos, como fotos, vídeos, músicas, PDFs;
       - Functions: Hospedagem da API;
       - Emulator;
