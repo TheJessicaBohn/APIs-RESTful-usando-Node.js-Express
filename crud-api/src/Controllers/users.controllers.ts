@@ -12,8 +12,17 @@ let usuarios: User[] = [];
 
 export class UsersController {
 
-  static getAll(req: Request, res: Response) {
-    res.send(usuarios);
+  static async getAll(req: Request, res: Response) {
+    const snapshot = await getFirestore().collection("users").get();
+
+    const usersReturn = snapshot.docs.map(doc => {
+      return {
+        id: doc.id,
+        ...doc.data()
+      }
+    });
+
+    res.send(usersReturn);
   }
 
   static getById(req: Request, res: Response) {
