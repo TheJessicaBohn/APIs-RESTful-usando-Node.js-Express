@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { getFirestore } from "firebase-admin/firestore";
 
 type User = {
@@ -10,7 +10,7 @@ type User = {
 
 export class UsersController {
 
-  static async getAll(req: Request, res: Response) {
+  static async getAll(req: Request, res: Response, next: NextFunction) {
     try {
       const snapshot = await getFirestore().collection("users").get();
 
@@ -23,9 +23,7 @@ export class UsersController {
 
       res.send(usersReturn);
     } catch (error) {
-      res.status(500).send({
-        message: "Erro interno de servidor"
-      })
+      next(error)
     }
   }
 
