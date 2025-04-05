@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { getFirestore } from "firebase-admin/firestore";
+import { ValidationError } from "../errors/validation.error";
 
 type User = {
   id: number,
@@ -43,9 +44,16 @@ export class UsersController {
     }
   }
 
-  static async create(req: Request, res: Response) {
+  static async create(req: Request, res: Response, next: NextFunction) {
     try {
       let user = req.body;
+      if (!user.email || user.email?.lenth === 0) {
+        throw new ValidationError("E-mail é um campo obrigatório!");
+      } else if (user.idade) {
+        throw new ValidationError("Idade é um campo obrigatório!");
+      } else if (user.nome || user.email?.lenth === 0) {
+        throw new ValidationError("Nome é um campo obrigatório!");
+      };
 
       const savedUser = await getFirestore().collection("users").add(user);
 
@@ -53,9 +61,7 @@ export class UsersController {
         message: `Usuário ${savedUser.id} criado com sucesso!`
       })
     } catch (error) {
-      res.status(400).send({
-        message: "Não foi possivél criar um novo usuário. Verifique se já não existe um usuário com os mesmos dados"
-      })
+      next(error);
     }
   }
 
