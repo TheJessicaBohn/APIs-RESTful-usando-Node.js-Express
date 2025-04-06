@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { getFirestore } from "firebase-admin/firestore";
 import { ValidationError } from "../errors/validation.error";
+import { NotFoundError } from "../errors/not-found.error";
 
 type User = {
   id: number,
@@ -32,11 +33,14 @@ export class UsersController {
     try {
       let userId = req.params.id;
       const doc = await getFirestore().collection("users").doc(userId).get();
-      let user = {
-        id: doc.id,
-        ...doc.data()
+      if (doc.exists) {
+        res.send({
+          id: doc.id,
+          ...doc.data()
+        });
+      } else {
+        throw new NotFoundError("Usuário não encontrado!")
       }
-      res.send(user);
     } catch (error) {
       res.status(400).send({
         message: "Usuário não encontrado!"
@@ -65,23 +69,27 @@ export class UsersController {
     }
   }
 
-  static update(req: Request, res: Response) {
+  static async update(req: Request, res: Response) {
     try {
       let userId = req.params.id;
       let user = req.body as User;
+      let docRef = getFirestore().collection("users").doc(userId);
 
-      getFirestore().collection("users").doc(userId).set({
-        nome: user.nome,
-        email: user.email,
-        idade: user.idade
-      });
-
-      res.send({
-        message: "Usuário alterado com sucesso!"
-      });
+      if ((await docRef.get()).exists) {
+        await getFirestore().collection("users").doc(userId).set({
+          nome: user.nome,
+          email: user.email,
+          idade: user.idade
+        });
+        res.send({
+          message: "Usuário alterado com sucesso!"
+        });
+      } else {
+        throw new NotFoundError("Usuário não encontrado!");
+      }
     } catch (error) {
       res.status(400).send({
-        message: "Não foi possivél atualizar este usuário, verifique se as informações enviadas são conflitantes"
+        message: "Não foi possível atualizar este usuário, verifique se as informações enviadas são conflitantes"
       })
     }
   }
