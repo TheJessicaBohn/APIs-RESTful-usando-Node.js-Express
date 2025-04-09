@@ -17,6 +17,8 @@
   - EsLint;
   - [tsc-watch](https://www.npmjs.com/package/tsc-watch): compiça o código para JavaScript e executa o Node, sem que tenha que refazer os comandos.
   - [Middleware Express Async Handler:](https://www.npmjs.com/package/express-async-handler) elimina a necessidade do uso de try-catch;
+	- Celebrate https://www.npmjs.com/package/celebrate faz as validaçoes atravez do joi por meio de esquemas
+	
 
 **Comandos uteis:**
 
@@ -43,6 +45,7 @@
 - ```npm start```: simplificação do comando, ```npx tsc-watch --onSuccess "node ./lib/index.js"```;
 - ```npm install firebase-admin --save```: instalar o Firebase Admin SDK;
 - ```npm install --save express-async-handler```: instalar o Middleware Express Async Handler;
+- ```npm i celebrate```: instalar o Middleware Celebrate;
 
 **Fontes:**
   - https://github.com/tsconfig/bases/?tab=readme-ov-file
