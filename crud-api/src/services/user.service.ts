@@ -1,50 +1,27 @@
-import { getFirestore } from "firebase-admin/firestore";
 import { User } from "../models/user.model";
-import { NotFoundError } from "../errors/not-found.error";
+import { userRepository } from "../repositories/user.repository";
 
-export class userService{
+export class userService {
+
+    private userRepository: userRepository;
+
+    constructor() {
+        this.userRepository = new userRepository();
+    }
+
     async getAll(): Promise<User[]> {
-        const snapshot = await getFirestore().collection("users").get();
-        
-        const usersReturn = snapshot.docs.map(doc => {
-            return {
-            id: doc.id,
-            ...doc.data()
-            }
-        }) as User[];
-        
-        return usersReturn;
+       return this.userRepository.getAll();
     }
 
     async getById(id: string): Promise<User> {
-        const doc = await getFirestore().collection("users").doc(id).get();
-        if (doc.exists) {
-            return {
-            id: doc.id,
-            ...doc.data()
-            } as User;
-        } else {
-            throw new NotFoundError("Usuário não encontrado!")
-        }
+        return this.userRepository.getById(id);
     }
-    async create(user: User) {
-        await getFirestore().collection("users").add(user);
-    }
-    async update(id: string, user: User) {
-        let docRef = getFirestore().collection("users").doc(id);
 
-        if ((await docRef.get()).exists) {
-        await getFirestore().collection("users").doc(id).set({
-            nome: user.nome,
-            email: user.email,
-            idade: user.idade
-        });
-        } else {
-        throw new NotFoundError("Usuário não encontrado!");
-        }
+    async create(user: User) {
+        return this.userRepository.create(user);
     }
 
     async delete(id: string) {
-        await getFirestore().collection("users").doc(id).delete();
+        return this.userRepository.delete(id);
     }
 } 
