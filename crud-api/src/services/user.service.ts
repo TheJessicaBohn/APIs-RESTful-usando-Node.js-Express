@@ -27,10 +27,10 @@ export class userService{
             throw new NotFoundError("Usuário não encontrado!")
         }
     }
-    async create(user: User): Promise<void> {
+    async create(user: User) {
         await getFirestore().collection("users").add(user);
     }
-    async update(id: string, user: User): Promise<void> {
+    async update(id: string, user: User) {
         let docRef = getFirestore().collection("users").doc(id);
 
         if ((await docRef.get()).exists) {
@@ -44,7 +44,7 @@ export class userService{
         }
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: string) {
         await getFirestore().collection("users").doc(id).delete();
     }
 } 
