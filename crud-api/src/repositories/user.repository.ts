@@ -1,11 +1,16 @@
-import { getFirestore } from "firebase-admin/firestore";
+import { CollectionReference, getFirestore } from "firebase-admin/firestore";
 import { User } from "../models/user.model";
-import { NotFoundError } from "../errors/not-found.error";
 
 export class userRepository {
+
+    private collection: CollectionReference;
+
+    constructor() {
+        this.collection = getFirestore().collection("users");
+    }
     
    async getAll(): Promise<User[]> {
-         const snapshot = await getFirestore().collection("users").get();
+         const snapshot = await this.collection.get();
                 
                 const usersReturn = snapshot.docs.map(doc => {
                     return {
@@ -17,35 +22,33 @@ export class userRepository {
                 return usersReturn;
     }
 
-    async getById(id: string): Promise<User> {
-            const doc = await getFirestore().collection("users").doc(id).get();
+    async getById(id: string): Promise<User | null> {
+            const doc = await this.collection.doc(id).get();
             if (doc.exists) {
                 return {
                 id: doc.id,
                 ...doc.data()
                 } as User;
             } else {
-                throw new NotFoundError("Usuário não encontrado!")
+                return null;
             }
         }
+
         async create(user: User) {
-            await getFirestore().collection("users").add(user);
+            await this.collection.add(user);
         }
-        async update(id: string, user: User) {
-            let docRef = getFirestore().collection("users").doc(id);
+
+        async update(user: User) {
+            let docRef = this.collection.doc(user.id);
     
-            if ((await docRef.get()).exists) {
-            await getFirestore().collection("users").doc(id).set({
+            await docRef.set({
                 nome: user.nome,
                 email: user.email,
                 idade: user.idade
             });
-            } else {
-            throw new NotFoundError("Usuário não encontrado!");
-            }
         }
     
         async delete(id: string) {
-            await getFirestore().collection("users").doc(id).delete();
+            await this.collection.doc(id).delete();
         }
 }
