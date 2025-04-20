@@ -8,7 +8,7 @@
   - [TypeScript](https://nodejs.org/en/learn/typescript/introduction): tipagem do JavaScript;
   - [PostMan](https://www.postman.com/downloads/);
   - [Firebase:](https://firebase.google.com/?hl=pt-br) ofereçe uma camada sobre o google cloud, para facilitar o lançamento e desenvolvimento de aplicações web ou mobile;
-      - Authentication: Parte de logins;
+      - [Authentication:](https://firebase.google.com/docs/auth/admin/manage-users?hl=pt-br&authuser=2) Parte de logins;
       - [Firestore](https://firebase.google.com/docs/firestore/manage-data/add-data?hl=pt-br&authuser=2#node.js): um banco de dados não relacional em núvem, parecido com o MongoDB, NoSQL com estrutura Google;
       - Storage: Permite que façamos Uploads de arquivos, como fotos, vídeos, músicas, PDFs;
       - Functions: Hospedagem da API;
@@ -17,8 +17,7 @@
   - EsLint;
   - [tsc-watch](https://www.npmjs.com/package/tsc-watch): compiça o código para JavaScript e executa o Node, sem que tenha que refazer os comandos.
   - [Middleware Express Async Handler:](https://www.npmjs.com/package/express-async-handler) elimina a necessidade do uso de try-catch;
-	- Celebrate https://www.npmjs.com/package/celebrate faz as validaçoes atravez do joi por meio de esquemas
-	
+	- [Celebrate:](https://www.npmjs.com/package/celebrate) faz as validaçoes atravez do joi por meio de esquemas
 
 **Comandos uteis:**
 
